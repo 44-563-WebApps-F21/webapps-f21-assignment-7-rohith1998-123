@@ -30,7 +30,7 @@
                     "18","19","20","21","22","23"
                   ];
           var triesCount = 0;
-          var animalLocation = 13;
+          var animalLocation =  Math.floor(Math.random()*23);
 
        function check(position){
            id =  ids[position]
@@ -76,6 +76,14 @@
           return (Math.max(Math.abs(x1-x2),Math.abs(y1-y2)))
       }
 
+      
+  function newGame(){
+            clickCount =0
+            let treasureLocation = Math.random(0,24)
+            document.getElementById("tries").innerHTML="Number of clicks is "+clickCount
+            document.getElementById("distance").innerHTML="Distance is Unknown"
+        }
+
      </script>
   </head>
 
@@ -91,6 +99,8 @@
         <div class="container border" id="distance">
            Distance is unknown.
         </div>
+        <br><br>
+        <div class = "container"><button onclick="newGame()">New Game</button>   </div>
       </div>
 
       <br><br>

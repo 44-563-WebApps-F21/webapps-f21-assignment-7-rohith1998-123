@@ -17,7 +17,7 @@
 
 <button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
 <button type="button" class="btn btn-primary" onclick="recordReact()">React Now</button>
-  
+
   <script> 
     var myTime = undefined
     function recordReact() {
@@ -26,14 +26,15 @@
     }
   
     function startTime() {
-      for(let i=0; i<4; i++){
-          setTimeout( ()=>{
-              document.getElementById("countdown").innerHTML = "Count: " + i
-          }, (3-i)*1000)
-      }
-      setTimeout(()=>{
-          checkMyTime()
-      }, 3000)
+        var startCount = Math.floor(Math.random()*10 + 2)
+        for(let i=0; i<startCount; i++){
+            setTimeout( ()=>{
+                document.getElementById("countdown").innerHTML = "Count: " + i
+            }, (startCount-i)*1000)
+        }
+        setTimeout(()=>{
+            checkMyTime()
+        }, startCount*1000)
     }
   
     function checkMyTime(){
@@ -46,6 +47,8 @@
           element.innerHTML = "Time was " + difference
       }
     }
+
+   
     </script>
 
 </body>

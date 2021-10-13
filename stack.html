@@ -36,7 +36,7 @@
     <button onclick="popItem()">Pop</button>
     <button onclick="zap()">Zap values</button>
 	
-	
+    <button class="btn btn-primary" onclick="unique()">Unique</button>
 </body>
 <script>
 	function makeNewDiv(){
@@ -51,25 +51,41 @@
 	}
 
     function popItem(){
-        var items = document.getElementsByClassName("stack")
-        var length = items.length
+        var stackItems = document.getElementsByClassName("stack")
+        var length = stackItems.length
         if(length>0)
-        items[length-1].remove()
+            stackItems[stackLength-1].remove()
     }
 
     function zap(){
-        var items = document.getElementsByClassName("stack")
+        var stackItems = document.getElementsByClassName("stack")
         let input = document.getElementById("inputElement").value
-        if(items!= undefined && items.length >0){
-            for(let index=0; index<items.length; index++){
-                if(items[index].innerHTML == input){
-                    var removeVar = items[index].innerHTML
-                    items[index].remove()
-                    console.log(removeVar)
+        if(stackItems!= undefined && stackItems.length >0){
+            for(let index=0; index<stackItems.length; index++){
+                if(stackItems[index].innerHTML == input){
+                    var itemToBeRemoved = stackItems[index].innerHTML
+                    stackItems[index].remove()
+                    console.log(itemToBeRemoved)
                     index--
                 }
             }
         }
+    }
+
+    function unique(){
+        var stackItems = document.getElementsByClassName("stack")
+		for(var i=0; i<stackItems.length; i++)
+        {
+			for(var j=i+1; j<stackItems.length; j++)
+            {
+                if(stackItems[i].innerHTML == stackItems[j].innerHTML)
+                {
+                    stackItems[i].remove()
+                    i--
+                    break;
+                }
+            }
+		}
     }
 </script>
 </html>	
