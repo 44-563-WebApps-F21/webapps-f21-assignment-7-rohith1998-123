@@ -38,7 +38,7 @@
            if(position == animalLocation){
              img.src = "./images/elephant.jpg"
            }else{
-             img.src = "./images/beach.jpg"
+             img.src = "./images/empty.png"
            }
            triesCount++;
            document.getElementById("tries").innerHTML="Number of Tries is "+triesCount
@@ -73,7 +73,7 @@
                   }
               }
           }
-          return (Math.abs(x1-x2)+Math.abs(y1-y2))
+          return (Math.max(Math.abs(x1-x2),Math.abs(y1-y2)))
       }
 
      </script>

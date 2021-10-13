@@ -12,25 +12,41 @@
 <body>
 
 <h2>Rohith Reddy reaction Timer</h2>
-  <div id ="target">Your  Time</div>
-  <div id="countdown">Count</div>
+<p id="target">Your time</p>
+<p id="countdown">Count</p>
 
-  <button class ="btn-success" onclick="startTime()">Start Timer</button>
-  <button class ="btn-primary" onclick ="recordReact()">React Now</button>
+<button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
+<button type="button" class="btn btn-primary" onclick="recordReact()">React Now</button>
   
   <script> 
-  var myTime = undefined
-  function recordReact() {
-    myTime = Date.now()
-    console.log(myTime)
-  }
-
-  function buttonPress2() {
-    setTimeout(()=>{
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
-  </script>
+    var myTime = undefined
+    function recordReact() {
+        myTime = Date.now()
+        console.log(myTime)
+    }
+  
+    function startTime() {
+      for(let i=0; i<4; i++){
+          setTimeout( ()=>{
+              document.getElementById("countdown").innerHTML = "Count: " + i
+          }, (3-i)*1000)
+      }
+      setTimeout(()=>{
+          checkMyTime()
+      }, 3000)
+    }
+  
+    function checkMyTime(){
+      var element = document.getElementById("target")
+      if(myTime == undefined)
+          element.innerHTML = "Too Slow"
+      else{
+          var buttonTime = Date.now()
+          var difference = buttonTime - myTime
+          element.innerHTML = "Time was " + difference
+      }
+    }
+    </script>
 
 </body>
 </html>
